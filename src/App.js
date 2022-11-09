@@ -4,15 +4,22 @@ const Lotto = require('./Lotto.js');
 class App {
   
   constructor() {
-    this.lotto = new Lotto();
   }
 
   pinrtMessage(message) {
     Console.print(message);
   }
 
-  play() {
 
+
+  purchase() {
+    Console.readLine('구입금액을 입력해 주세요.\n',(answer) => {
+      console.log(answer);
+    })
+  }
+
+  play() {
+    this.purchase();
   }
 }
 const app = new App();
