@@ -1,3 +1,5 @@
+const MissionUtils = require('@woowacourse/mission-utils');
+const {Console, Random} = MissionUtils;
 class Lotto {
   #numbers;
 
