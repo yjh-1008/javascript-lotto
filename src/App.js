@@ -4,6 +4,9 @@ const Lotto = require('./Lotto.js');
 class App {
   
   constructor() {
+    this.lotto;
+    this. numberOfPurchase=0;
+    this.lotts = [];
   }
 
   pinrtMessage(message) {
@@ -18,10 +21,18 @@ class App {
   }
 
 
+  drawLotto() {
+    while(this.lotts.length < this.numberOfPurchase) {
+      let lotto = new Lotto(Random.pickUniqueNumbersInRange(1, 45, 6));
+      this.lotts.push(lotto.getNumbers());
+    }
+  }
+
+
   purchase() {
     Console.readLine('구입금액을 입력해 주세요.\n',(answer) => {
-      let numberOfPurchase = this.validationAmount(answer);
-      console.log(numberOfPurchase);
+      this.numberOfPurchase = this.validationAmount(answer);
+      this.drawLotto();
     })
   }
 
