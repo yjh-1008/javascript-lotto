@@ -7,7 +7,7 @@ class App {
     this.lotto;
     this. numberOfPurchase=0;
     this.lotts = [];
-    this.winningNumber = [];
+    this.winningNumber;
     this.bonusNumber;
   }
 
@@ -36,12 +36,25 @@ class App {
     }
   }
 
+  getWinningNumber() {
+    Console.readLine('당첨 번호를 입력해 주세요.\n',(answer) => {
+      this.winningNumber = new Lotto(answer.split(','));
+      this.getBonusNumber();
+    })
+  }
+
+  getBonusNumber() {
+    Console.readLine('보너스 번호를 입력해 주세요.\n',(answer) => {
+      this.bonusNumber = answer;
+    })
+  }
 
   purchase() {
     Console.readLine('구입금액을 입력해 주세요.\n',(answer) => {
       this.numberOfPurchase = this.validationAmount(answer);
       this.drawLotto();
       this.printLottos();
+      this.getWinningNumber();
     })
   }
 
