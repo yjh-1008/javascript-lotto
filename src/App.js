@@ -7,10 +7,18 @@ class App {
     this.lotto;
     this. numberOfPurchase=0;
     this.lotts = [];
+    this.winningNumber = [];
+    this.bonusNumber;
   }
 
-  pinrtMessage(message) {
+  printMessage(message) {
     Console.print(message);
+  }
+
+  printLottos() {
+    this.lotts.map((lotto) => {
+      this.printMessage(`[${lotto.getNumbers()}]`);
+    })
   }
 
   validationAmount(money) {
@@ -24,7 +32,7 @@ class App {
   drawLotto() {
     while(this.lotts.length < this.numberOfPurchase) {
       let lotto = new Lotto(Random.pickUniqueNumbersInRange(1, 45, 6));
-      this.lotts.push(lotto.getNumbers());
+      this.lotts.push(lotto);
     }
   }
 
@@ -33,6 +41,7 @@ class App {
     Console.readLine('구입금액을 입력해 주세요.\n',(answer) => {
       this.numberOfPurchase = this.validationAmount(answer);
       this.drawLotto();
+      this.printLottos();
     })
   }
 
