@@ -15,7 +15,7 @@ class Lotto {
   }
 
   sortNumbers() {
-    this.#numbers = this.#numbers.sort();
+    this.#numbers =  this.#numbers.sort(function(a,b){return a-b });
   }
 
   getNumbers() {
