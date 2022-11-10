@@ -5,7 +5,7 @@ class App {
   
   constructor() {
     this.lotto;
-    this. numberOfPurchase=0;
+    this.numberOfPurchase=0;
     this.lotts = [];
     this.winningNumber;
     this.bonusNumber;
@@ -32,6 +32,7 @@ class App {
   drawLotto() {
     while(this.lotts.length < this.numberOfPurchase) {
       let lotto = new Lotto(Random.pickUniqueNumbersInRange(1, 45, 6));
+      lotto.sortNumbers();
       this.lotts.push(lotto);
     }
   }
@@ -46,6 +47,7 @@ class App {
   getBonusNumber() {
     Console.readLine('보너스 번호를 입력해 주세요.\n',(answer) => {
       this.bonusNumber = answer;
+      printResult();
     })
   }
 

@@ -14,6 +14,10 @@ class Lotto {
     }
   }
 
+  sortNumbers() {
+    this.#numbers = this.#numbers.sort();
+  }
+
   getNumbers() {
     return this.#numbers;
   }
