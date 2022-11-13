@@ -19,11 +19,11 @@ class App {
   }
 
   printLotto(lotto) {
-      let str = "[";
+      let lottoMessage = "[";
       lotto.getNumbers().forEach((ball, index)=>{
-        str += index !== 5 ? ball+", " : ball+"]";
+        lottoMessage += index !== 5 ? ball+", " : ball+"]";
       })
-      this.printMessage(str);
+      this.printMessage(lottoMessage);
   }
 
   printLottos() {
